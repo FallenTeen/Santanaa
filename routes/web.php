@@ -1,6 +1,5 @@
 <?php
 use Illuminate\Support\Facades\Route;
-
 Route::view('/', 'userpages.landing');
 
 Route::middleware(['auth', 'verified', 'admin'])->group(function () {
@@ -10,6 +9,7 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::get('admin/karyawan', [App\Http\Controllers\AdminController::class, 'viewKaryawan'])->name('admin.viewkaryawan');
     Route::get('admin/report', [App\Http\Controllers\AdminController::class, 'viewReport'])->name('admin.viewReport');
     Route::get('admin/hotel', [App\Http\Controllers\HotelController::class, 'viewHotel'])->name('admin.viewhotel');
+    
 });
 Route::middleware(['auth', 'verified', 'karyawan'])->group(function () {
     Route::get('dashboard',  [App\Http\Controllers\KaryawanController::class, 'dashboard'])->name('dashboard');

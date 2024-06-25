@@ -21,7 +21,12 @@
                                 </div>
                                 <div class="mb-4">
                                     <label for="divisi" class="block text-gray-700 text-sm font-bold mb-2">Divisi:</label>
-                                    <input type="text" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="divisi" wire:model="divisi">
+                                    <select id="divisi" wire:model="divisi" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                                        <option value="">Pilih Divisi</option>
+                                        <option value="Food And Beverage">Food-And-Beverage</option>
+                                        <option value="Engineer">Engineering</option>
+                                        <option value="Security">Security</option>
+                                    </select>
                                     @error('divisi') <span class="text-red-500">{{ $message }}</span>@enderror
                                 </div>
                                 <div class="mb-4">
