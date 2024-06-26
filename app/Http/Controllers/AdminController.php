@@ -3,11 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Report;
 
 class AdminController extends Controller
 {
    public function dashboard(){
-      return view('admin.dashboard');
+      $countPendingReports = Report::where('aksi', 'Menunggu Tindakan')->count();
+      return view('admin.dashboard', [
+         'countPendingReports' => $countPendingReports,
+     ]);
    }
    public function viewHotels(){
     return view('admin.hotel.viewHotels');
