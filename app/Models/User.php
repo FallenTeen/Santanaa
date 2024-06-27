@@ -45,7 +45,8 @@ class User extends Authenticatable
         ];
     }
 
-    public function karyawan(){
+    public function karyawan()
+    {
         return $this->hasOne(Karyawan::class);
     }
 }

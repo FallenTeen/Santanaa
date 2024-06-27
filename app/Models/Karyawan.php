@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Karyawan extends Model
 {
     use HasFactory;
-    protected $fillable = ['nama', 'email', 'divisi'];
+    protected $fillable = ['nama', 'email', 'divisi','user_id'];
     public function user()
     {
         return $this->belongsTo(User::class); // Sesuaikan dengan nama model User Anda jika berbeda

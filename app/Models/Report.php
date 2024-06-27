@@ -11,4 +11,8 @@ class Report extends Model
     protected $fillable = [
         'divisi', 'aksi', 'assigned_to'
     ];
+    public function assignedKaryawan()
+    {
+        return $this->belongsTo(Karyawan::class, 'assigned_to', 'id');
+    }
 }

@@ -8,7 +8,8 @@ use App\Models\TipeKamar;
 class ManageTipekamar extends Component
 {
 
-    public $tipeKamar, $selectedId;
+    public $tipeKamar;
+    public $kode_tipe, $tipe, $penjelasan_tipe, $selectedId;
     
     // Tidak mengatur properti $layout
 
@@ -21,7 +22,7 @@ class ManageTipekamar extends Component
     public function store()
     {
         $this->validate([
-            'kode_tipe' => 'required|unique:tipe_kamar',
+            'kode_tipe' => 'required|unique:tipe_kamars',
             'tipe' => 'required',
             'penjelasan_tipe' => 'required',
         ]);
@@ -47,7 +48,7 @@ class ManageTipekamar extends Component
     public function update()
     {
         $this->validate([
-            'kode_tipe' => 'required|unique:tipe_kamar,kode_tipe,' . $this->selectedId,
+            'kode_tipe' => 'required|unique:tipe_kamars,kode_tipe,' . $this->selectedId,
             'tipe' => 'required',
             'penjelasan_tipe' => 'required',
         ]);

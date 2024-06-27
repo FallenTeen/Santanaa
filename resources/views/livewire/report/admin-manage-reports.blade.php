@@ -46,12 +46,11 @@
                 <td>{{ $report->divisi }}</td>
                 <td>{{ $report->detail }}</td>
                 <td>{{ $report->aksi }}</td>
-                <td>{{ $report->assigned_to ? $karyawans->firstWhere('id', $report->assigned_to)->nama : 'Belum Ditindak' }}</td>
+                <td>{{ $report->assigned_to ? $karyawan->firstWhere('id', $report->assigned_to)->nama : 'Belum Ditindak' }}</td>
                 <td>
                     @if ($report->aksi == 'Menunggu Tindakan')
-                    <button wire:click="selectReport({{ $report->id }})">Pilih Aksi</button>
-                    @endif
-                    @if ($report->aksi == 'Tindakan Diambil')
+                    <button wire:click="selectReport({{ $report->id }})">Ambil Tindakan</button>
+                    @elseif ($report->aksi == 'Tindakan Diambil' || $report->aksi == 'Selesai Ditindak')
                     <button wire:click="completeAction({{ $report->id }})">Selesai</button>
                     @endif
                     <button wire:click="showDetail({{ $report->id }})">Detail</button>
@@ -73,7 +72,7 @@
                 <label for="karyawan">Pilih Karyawan:</label>
                 <select wire:model="karyawanId" id="karyawan">
                     <option value="">Pilih Karyawan</option>
-                    @foreach($karyawans as $karyawan)
+                    @foreach($karyawan as $karyawan)
                     <option value="{{ $karyawan->id }}">{{ $karyawan->nama }}</option>
                     @endforeach
                 </select>
