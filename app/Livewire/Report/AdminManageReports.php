@@ -47,6 +47,9 @@ class AdminManageReports extends Component
             $this->selectedReport = null;
 
             $this->reports = Report::all();
+        } else {
+            // Tampilkan notifikasi jika tidak ada karyawan yang tersedia
+            $this->showNoKaryawanNotification = true;
         }
     }
 

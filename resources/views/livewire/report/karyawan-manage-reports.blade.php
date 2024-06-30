@@ -1,35 +1,38 @@
-<!-- resources/views/livewire/report/karyawan-manage-report.blade.php -->
-
-<div>
-    <h2>Daftar Laporan</h2>
-
-    <table class="table">
+<div class="-mx-4 sm:-mx-8 px-4 sm:px-8 overflow-x-auto">
+    <table class="min-w-full bg-white border-gray-200">
         <thead>
             <tr>
-                <th>Divisi</th>
-                <th>Detail</th>
-                <th>Ditugaskan Kepada</th>
-                <th>Status</th>
-                <th>Tindakan</th>
-                <!-- Tambahkan kolom lain jika diperlukan -->
+                <th class="px-2 py-3 bg-gray-100 text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">ID Lap.</th>
+                <th class="px-4 py-3 bg-gray-100 text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">Divisi</th>
+                <th class="px-8 py-3 bg-gray-100 text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">Detail</th>
+                <th class="px-6 py-3 bg-gray-100 text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">Aksi</th>
+                <th class="px-6 py-3 bg-gray-100 text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">Ditindak Oleh</th>
+                <th class="px-6 py-3 bg-gray-100 text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">Tindakan</th>
+                <th class="px-6 py-3 bg-gray-100 text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">Dibuat Pada</th>
+                <th class="px-6 py-3 bg-gray-100 text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">Ditindak Pada</th>
             </tr>
         </thead>
         <tbody>
             @foreach($reports as $report)
-                <tr>
-                    <td>{{ $report->divisi }}</td>
-                    <td>{{ $report->detail }}</td>
-                    <td>{{ $report->assigned_to ? $karyawans->firstWhere('id', $report->assigned_to)->nama : 'Belum Ditindak' }}</td>
-                    <td>{{ $report->aksi }}</td>
-                    <td>
-                        @if ($report->aksi == 'Menunggu Tindakan')
-                        <button wire:click="takeAction({{ $report->id }})">Ambil Tindakan</button>
-                        @elseif ($report->aksi == 'Tindakan Diambil')
-                        <button wire:click="completeAction({{ $report->id }})">Selesai</button>
-                        @endif
-                    </td>
-                    <!-- Tambahkan sel lain sesuai kebutuhan -->
-                </tr>
+            <tr class="hover:bg-gray-50">
+                <td class="px-6 py-4 whitespace-no-wrap">{{ $report->id }}</td>
+                <td class="px-6 py-4 whitespace-no-wrap">{{ $report->divisi }}</td>
+                <td class="px-6 py-4 whitespace-no-wrap">{{ $report->detail }}</td>
+                <td class="px-6 py-4 whitespace-no-wrap text-center">{{ $report->aksi }}</td>
+                <td class="px-6 py-4 whitespace-no-wrap text-center">
+                    {{ $report->assigned_to ? $karyawans->firstWhere('id', $report->assigned_to)->nama : 'Belum Ditindak' }}
+                </td>
+                <td class="px-6 py-4 whitespace-no-wrap flex justify-center space-x-2">
+                    @if ($report->aksi == 'Menunggu Tindakan')
+                    <button wire:click="selectReport({{ $report->id }})" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none">Ambil Tindakan</button>
+                    @elseif ($report->aksi == 'Tindakan Diambil' || $report->aksi == 'Selesai Ditindak')
+                    <button wire:click="completeAction({{ $report->id }})" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded focus:outline-none">Selesai</button>
+                    @endif
+                    <button wire:click="showDetail({{ $report->id }})" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none">Detail</button>
+                </td>
+                <td class="px-6 py-4 whitespace-no-wrap">{{ $report->created_at }}</td>
+                <td class="px-6 py-4 whitespace-no-wrap">{{ $report->updated_at }}</td>
+            </tr>
             @endforeach
         </tbody>
     </table>

@@ -39,10 +39,12 @@
             </button>
         </div>
         <div class="flex items-center justify-center mt-4">
-            <button type="button" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" id="btnKembali">
-                Kembali ke Kelola Tipe Kamar
-            </button>
+        <button type="button" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        onclick="window.location.reload();">
+            Kembali ke Kelola Management Hotel
+        </button>
         </div>
     </form>
 </div>
+
 

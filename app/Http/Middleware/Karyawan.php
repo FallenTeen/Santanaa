@@ -35,4 +35,5 @@ class Karyawan
         }
         return response()->json(['message' => 'Unauthorized'], 401);
     }
+    
 }

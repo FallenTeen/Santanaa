@@ -7,7 +7,7 @@ use App\Models\Report;
 use App\Models\Karyawan;
 use Illuminate\Support\Facades\Auth;
 
-class KaryawanManageReport extends Component
+class KaryawanManageReports extends Component
 {
     public $reports, $karyawans;
 
@@ -30,7 +30,7 @@ class KaryawanManageReport extends Component
 
     public function render()
     {
-        return view('livewire.report.karyawan-manage-report', [
+        return view('livewire.report.karyawan-manage-reports', [
             'reports' => $this->reports,
             'karyawans' => $this->karyawans, // Kirim $karyawans ke view
         ]);
@@ -42,5 +42,9 @@ class KaryawanManageReport extends Component
             $report->save();
             $this->loadReports();
         }
+    }
+    public function countPendingReports()
+    {
+        return Report::where('aksi', 'Menunggu Tindakan')->count();
     }
 }

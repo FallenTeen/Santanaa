@@ -9,7 +9,7 @@ class Report extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'divisi', 'aksi', 'assigned_to'
+        'divisi', 'aksi','detail', 'assigned_to'
     ];
     public function assignedKaryawan()
     {

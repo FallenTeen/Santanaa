@@ -1,5 +1,3 @@
-<!-- resources/views/livewire/managehotel/kamar/managetipekamar-index.blade.php -->
-
 <div>
     @if (session()->has('message'))
         <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative mb-4" role="alert">
@@ -22,13 +20,17 @@
                 <td class="py-3 px-4">{{ $tipe->kode_tipe }}</td>
                 <td class="py-3 px-4">{{ $tipe->tipe }}</td>
                 <td class="py-3 px-4">{{ $tipe->penjelasan_tipe }}</td>
-                <td class="py-3 px-4">
+                <td class="py-3 px-4 flex justify-center items-center">
+                    <div class="px-2">
                     <button wire:click="edit({{ $tipe->id }})" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                         Edit
                     </button>
+                    </div>
+                    <div class="px-2">
                     <button wire:click="destroy({{ $tipe->id }})" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                         Hapus
                     </button>
+                    </div>
                 </td>
             </tr>
             @endforeach
