@@ -40,7 +40,7 @@ class KaryawanManageReport extends Component
         if ($report) {
             $report->aksi = 'Selesai Ditindak';
             $report->save();
-            $this->reports = Report::all();
+            $this->loadReports();
         }
     }
 }

@@ -9,6 +9,7 @@ Route::middleware(['auth', 'verified', 'admin'])->group(function () {
     Route::get('admin/karyawan', [App\Http\Controllers\AdminController::class, 'viewKaryawan'])->name('admin.viewkaryawan');
     Route::get('admin/report', [App\Http\Controllers\AdminController::class, 'viewReport'])->name('admin.viewReport');
     Route::get('admin/hotel', [App\Http\Controllers\HotelController::class, 'viewHotel'])->name('admin.viewhotel');
+    Route::get('admin/tipe-kamar-create', App\Livewire\Managehotel\Kamar\TipeKamarCreate::class)->name('tipe-kamar-create');
     
 });
 Route::middleware(['auth', 'verified', 'karyawan'])->group(function () {

@@ -25,4 +25,5 @@ class Kamar extends Model
     public function statusKamar(){
         return $this->belongsTo(StatusKamar::class);
     }
+   
 }

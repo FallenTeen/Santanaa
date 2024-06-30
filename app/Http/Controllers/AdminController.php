@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Report;
-
+use App\Models\Booking;
 class AdminController extends Controller
 {
    public function dashboard(){
@@ -22,4 +22,5 @@ class AdminController extends Controller
    public function viewKaryawan(){
       return view('admin.karyawan.viewkaryawan');
    }
+
 }
