@@ -10,14 +10,14 @@ class ManageStatuskamar extends Component
 {
     public $kode_status, $status, $penjelasan_status;
     public $statusKamar, $selectedId;
-
+    public $createForm = false;
+    public $editForm = false;
 
     public function render()
     {
         $this->statusKamar = StatusKamar::all(); 
-    return view('livewire.managehotel.kamar.managestatuskamar');
+        return view('livewire.managehotel.kamar.managestatuskamar', ['statusKamar' => $this->statusKamar]);
     }
-
     public function store()
     {
         $this->validate([
@@ -36,13 +36,14 @@ class ManageStatuskamar extends Component
     }
 
     public function edit($id)
-{
-    $record = StatusKamar::findOrFail($id);
-    $this->selectedId = $id;
-    $this->kode_status = $record->kode_status;
-    $this->status = $record->status;
-    $this->penjelasan_status = $record->penjelasan_status;
-}
+    {
+        $this->editForm = true;
+        // Load the Status Kamar data for editing
+        $record = StatusKamar::findOrFail($id);
+        $this->kode_status = $record->kode_status;
+        $this->status = $record->status;
+        $this->penjelasan_status = $record->penjelasan_status;
+    }
 
 public function update()
 {

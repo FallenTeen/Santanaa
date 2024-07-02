@@ -8,12 +8,11 @@ use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 class AddKaryawan extends Component
 {
-    public $name;
-    public $email;
-    public $password;
-    public $divisi;
+    public $name, $email, $password, $divisi, $alamat, $notelp;
     protected $rules = [
         'name' => 'required|string',
+        'notelp' => 'required|string',
+        'alamat' => 'required|string',
         'email' => 'required|email|unique:users,email',
         'password' => 'required|string|min:8',
         'divisi' => 'required|string',
@@ -37,6 +36,8 @@ class AddKaryawan extends Component
 
         $karyawan = new Karyawan();
         $karyawan->nama = $validatedData['name'];
+        $karyawan->notelp = $validatedData['notelp'];
+        $karyawan->alamat = $validatedData['alamat'];
         $karyawan->email = $validatedData['email'];
         $karyawan->divisi = $validatedData['divisi'];
         $karyawan->save();

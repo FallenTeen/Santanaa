@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->string('email')->unique();
+            $table->string('notelp');
+            $table->string('alamat');
             $table->string('divisi');
             $table->timestamps();
         });

@@ -7,7 +7,7 @@ use App\Models\User;
 
 class IndexKaryawan extends Component
 {
-    public $editId, $editNama, $editEmail, $editDivisi;
+    public $editId, $editNama, $editEmail, $editDivisi, $editNotelp, $editAlamat;
     public function render()
     {
         $karyawans = Karyawan::with('user')->get();
@@ -21,6 +21,8 @@ class IndexKaryawan extends Component
             $this->editId = $karyawan->id;
             $this->editNama = $karyawan->nama;
             $this->editEmail = $karyawan->email;
+            $this->editNotelp = $karyawan->notelp;
+            $this->editAlamat = $karyawan->alamat;
             $this->editDivisi = $karyawan->divisi;
         }
     }
@@ -30,7 +32,9 @@ class IndexKaryawan extends Component
         $validatedData = $this->validate([
             'editNama' => 'required|string',
             'editEmail' => 'required|email',
-            'editDivisi' => 'required|string'
+            'editDivisi' => 'required|string',
+            'editNotelp' => 'required|string',
+            'editAlamat' => 'required|string',
         ]);
 
         $karyawan = Karyawan::find($this->editId);
@@ -38,6 +42,8 @@ class IndexKaryawan extends Component
             // Update data pada tabel karyawans
             $karyawan->nama = $validatedData['editNama'];
             $karyawan->email = $validatedData['editEmail'];
+            $karyawan->notelp = $validatedData['editNotelp'];
+            $karyawan->alamat = $validatedData['editAlamat'];
             $karyawan->divisi = $validatedData['editDivisi'];
             $karyawan->save();
 
@@ -46,6 +52,8 @@ class IndexKaryawan extends Component
                 $user = $karyawan->user;
                 $user->name = $validatedData['editNama'];
                 $user->email = $validatedData['editEmail'];
+                $user->alamat = $validatedData['editAlamat'];
+                $user->notelp = $validatedData['editNotelp'];
                 $user->save();
             } else {
             }

@@ -13,27 +13,29 @@
             </tr>
         </thead>
         <tbody>
-            @foreach($reports as $report)
+        @foreach($reports as $report)
             <tr class="hover:bg-gray-50">
                 <td class="px-6 py-4 whitespace-no-wrap">{{ $report->id }}</td>
                 <td class="px-6 py-4 whitespace-no-wrap">{{ $report->divisi }}</td>
-                <td class="px-6 py-4 whitespace-no-wrap">{{ $report->detail }}</td>
+                <td class="px-8 py-4 whitespace-no-wrap">{{ $report->detail }}</td>
                 <td class="px-6 py-4 whitespace-no-wrap text-center">{{ $report->aksi }}</td>
                 <td class="px-6 py-4 whitespace-no-wrap text-center">
                     {{ $report->assigned_to ? $karyawans->firstWhere('id', $report->assigned_to)->nama : 'Belum Ditindak' }}
                 </td>
                 <td class="px-6 py-4 whitespace-no-wrap flex justify-center space-x-2">
                     @if ($report->aksi == 'Menunggu Tindakan')
-                    <button wire:click="selectReport({{ $report->id }})" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none">Ambil Tindakan</button>
-                    @elseif ($report->aksi == 'Tindakan Diambil' || $report->aksi == 'Selesai Ditindak')
-                    <button wire:click="completeAction({{ $report->id }})" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded focus:outline-none">Selesai</button>
+                        <button wire:click="selectReport({{ $report->id }})" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none">Ambil Tindakan</button>
+                    @elseif ($report->aksi == 'Tindakan Diambil')
+                        <button wire:click="completeAction({{ $report->id }})" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded focus:outline-none">Selesai</button>
                     @endif
                     <button wire:click="showDetail({{ $report->id }})" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none">Detail</button>
+                    <button wire:click="delete({{ $report->id }})" class="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 rounded focus:outline-none">Hapus</button>
                 </td>
                 <td class="px-6 py-4 whitespace-no-wrap">{{ $report->created_at }}</td>
                 <td class="px-6 py-4 whitespace-no-wrap">{{ $report->updated_at }}</td>
             </tr>
-            @endforeach
+        @endforeach
+
         </tbody>
     </table>
 </div>

@@ -62,14 +62,18 @@ class AdminManageReports extends Component
         $this->karyawanId = $this->selectedReport->assigned_to;
     }
 
-    public function completeAction($reportId){
+    public function completeAction($reportId)
+    {
         $report = Report::find($reportId);
         if ($report) {
             $report->aksi = 'Selesai Ditindak';
             $report->save();
+            $this->selectedReport = null;
             $this->reports = Report::all();
         }
     }
+
+
 
     public function delete($reportId)
     {

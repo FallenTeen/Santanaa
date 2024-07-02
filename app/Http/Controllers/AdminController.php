@@ -7,6 +7,14 @@ use App\Models\Report;
 use App\Models\Booking;
 class AdminController extends Controller
 {
+   public $showModal = false;
+
+   public function openModal(){
+      $this->showModal = true;
+   }
+   public function closeModal(){
+      $this->showModal = false;
+   }
    public function dashboard(){
       $countPendingReports = Report::where('aksi', 'Menunggu Tindakan')->count();
       return view('admin.dashboard', [

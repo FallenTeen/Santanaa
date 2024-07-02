@@ -1,4 +1,3 @@
-<!-- resources/views/layouts/app.blade.php -->
 
 <x-app-layout>
     <x-slot name="header">
@@ -45,21 +44,33 @@
                         <div class="manage-kamar livewire-component active">
                             @livewire('managehotel.kamar.managekamar')
                         </div>
-                        <div class="manage-status-kamar livewire-component hidden">
-                            @livewire('managehotel.kamar.managestatuskamar')
+
+                        <div class="manage-status-kamar livewire-component">
+                        <button type="button" class="btn btn-primary bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" id="btnTambahStatusKamar">
+                            Tambah Status Kamar
+                        </button>
+                        <div class="py-2">
+                        @livewire('managehotel.kamar.status-kamar-index')
+                        </div> 
                         </div>
+
+
                         <div class="manage-tipe-kamar livewire-component hidden">
                             <div>
-                            <button type="button" class="btn btn-primary bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" id="btnTambahTipeKamar">
-                                Tambah Tipe Kamar
-                            </button>
-                            </div>   
+                                <button type="button" class="btn btn-primary bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded" id="btnTambahTipeKamar">
+                                    Tambah Tipe Kamar
+                                </button>
+                            </div>
                             <div class="py-2">
-                            @livewire('managehotel.kamar.tipe-kamar-index') 
+                                @livewire('managehotel.kamar.tipe-kamar-index')
                             </div>
                         </div>
                         <div class="tipe-kamar-create livewire-component hidden">
                             @livewire('managehotel.kamar.tipe-kamar-create')
+                        </div>
+
+                        <div class="status-kamar-create livewire-component hidden">
+                            @livewire('managehotel.kamar.status-kamar-create')
                         </div>
                     </div>
                 </div>
@@ -67,47 +78,57 @@
         </div>
     </div>
 
-
     <style>
         .livewire-component { display: none; }
         .livewire-component.active { display: block; }
         /* Add additional styles as needed */
     </style>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const defaultComponent = document.querySelector('.manage-kamar');
-        defaultComponent.classList.add('active');
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const defaultComponent = document.querySelector('.manage-kamar');
+            defaultComponent.classList.add('active');
 
-        const links = document.querySelectorAll('.sidebar-nav-link');
-        const components = document.querySelectorAll('.livewire-component');
+            const links = document.querySelectorAll('.sidebar-nav-link');
+            const components = document.querySelectorAll('.livewire-component');
 
-        links.forEach(link => {
-            link.addEventListener('click', function(event) {
-                event.preventDefault();
-                const target = this.getAttribute('data-target');
+            links.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault();
+                    const target = this.getAttribute('data-target');
 
-                components.forEach(component => {
-                    component.classList.remove('active');
-                    if (component.classList.contains(target)) {
-                        component.classList.add('active');
-                    }
+                    components.forEach(component => {
+                        component.classList.remove('active');
+                        if (component.classList.contains(target)) {
+                            component.classList.add('active');
+                        }
+                    });
                 });
             });
+
+            // Event listener for button inside manage-tipe-kamar
+            const btnTambahTipeKamar = document.getElementById('btnTambahTipeKamar');
+            if (btnTambahTipeKamar) {
+                btnTambahTipeKamar.addEventListener('click', function() {
+                    const manageTipeKamar = document.querySelector('.manage-tipe-kamar');
+                    const tipeKamarCreate = document.querySelector('.tipe-kamar-create');
+
+                    manageTipeKamar.classList.remove('active');
+                    tipeKamarCreate.classList.add('active');
+                });
+            }
+            
+
+            const btnTambahStatusKamar = document.getElementById('btnTambahStatusKamar');
+            if (btnTambahStatusKamar) {
+                btnTambahStatusKamar.addEventListener('click', function() {
+                    const manageStatusKamar = document.querySelector('.manage-status-kamar');
+                    const StatusKamarCreate = document.querySelector('.status-kamar-create');
+
+                    manageStatusKamar.classList.remove('active');
+                    StatusKamarCreate.classList.add('active');
+                });
+            }
         });
-
-        // Event listener for button inside manage-tipe-kamar
-        const btnTambahTipeKamar = document.getElementById('btnTambahTipeKamar');
-        if (btnTambahTipeKamar) {
-            btnTambahTipeKamar.addEventListener('click', function() {
-                const manageTipeKamar = document.querySelector('.manage-tipe-kamar');
-                const tipeKamarCreate = document.querySelector('.tipe-kamar-create');
-
-                manageTipeKamar.classList.remove('active');
-                tipeKamarCreate.classList.add('active');
-            });
-        }
-    });
-</script>
-
+    </script>
 </x-app-layout>
