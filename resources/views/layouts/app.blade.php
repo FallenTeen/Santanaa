@@ -20,7 +20,7 @@
 
             <!-- Page Heading -->
             @if (isset($header))
-                <header class="max-w-7x1 bg-[#B9A165] shadow text-white">
+                <header class="max-w-7x1 bg-[#B9A165] shadow-lg text-white">
                     <div class="max-w-7xl mx-auto py-5 px-4 sm:px-6 lg:px-8">
                         {{ $header }}
                     </div>

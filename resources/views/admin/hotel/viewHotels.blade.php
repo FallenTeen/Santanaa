@@ -2,7 +2,7 @@
 <x-app-layout>
     <x-slot name="header">
         <div class="flex items-center ">
-            <h2 class="font-semibold   text-xl text-white-800 dark:white-gray-200 leading-tight">
+            <h2 class="font-semibold text-xl text-white-800 dark:white-gray-200 leading-tight">
                 {{ __('Manajemen Hotel') }}
             </h2>
         </div>
