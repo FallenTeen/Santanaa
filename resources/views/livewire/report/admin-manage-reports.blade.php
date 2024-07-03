@@ -50,7 +50,7 @@
                     </td>
                     <td class="px-6 py-4 whitespace-no-wrap flex justify-center space-x-2">
                         @if ($report->aksi == 'Menunggu Tindakan')
-                            <button wire:click="selectReport({{ $report->id }})" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none">Ambil Tindakan</button>
+                            <button wire:click="selectReport({{ $report->id }})" class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded focus:outline-none">Ambil Tindakan</button>
                         @elseif ($report->aksi == 'Tindakan Diambil')
                             <button wire:click="completeAction({{ $report->id }})" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded focus:outline-none">Selesai</button>
                         @elseif ($report->aksi == 'Selesai Ditindak')

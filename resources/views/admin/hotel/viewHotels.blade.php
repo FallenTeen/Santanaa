@@ -1,8 +1,8 @@
 
 <x-app-layout>
     <x-slot name="header">
-        <div class="flex items-center">
-            <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+        <div class="flex items-center ">
+            <h2 class="font-semibold   text-xl text-white-800 dark:white-gray-200 leading-tight">
                 {{ __('Manajemen Hotel') }}
             </h2>
         </div>
@@ -42,7 +42,7 @@
                     <div class="p-6 text-gray-900 dark:text-gray-100">
                         <!-- Livewire Components -->
                         <div class="manage-kamar livewire-component active">
-                            @livewire('managehotel.kamar.managekamar')
+                        @livewire('managehotel.kamar.managekamar')
                         </div>
 
                         <div class="manage-status-kamar livewire-component">
