@@ -20,7 +20,7 @@
     @elseif($currentStep == 2)
         {{-- Step 2: Informasi Tamu --}}
         <h3 class="text-xl font-bold mb-4">Step 2: Informasi Tamu</h3>
-        <form wire:submit.prevent="validateData">
+        <form wire:submit.prevent="storeGuest">
             <div class="mb-4">
                 <label class="block text-sm font-medium text-gray-700">Nama:</label>
                 <input type="text" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" wire:model="nama">
@@ -46,8 +46,8 @@
                 <input type="text" class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring focus:ring-indigo-200 focus:ring-opacity-50" wire:model="jumlah_tamu">
                 @error('jumlah_tamu') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
             </div>
-            <button type="button" wire:click="nextStep" class="inline-block px-4 py-2 bg-indigo-500 text-white rounded hover:bg-indigo-600">Next</button>
             <button type="button" wire:click="kembali" class="inline-block px-4 py-2 ml-4 bg-gray-300 text-gray-700 rounded hover:bg-gray-400">Back</button>
+            <button type="button" wire:click="nextStep" class="inline-block px-4 py-2 bg-indigo-500 text-white rounded hover:bg-indigo-600">Next</button>
         </form>
     @elseif($currentStep == 3)
         {{-- Step 3: Pilih Kamar --}}
