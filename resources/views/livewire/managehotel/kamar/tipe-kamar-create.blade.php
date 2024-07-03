@@ -39,7 +39,7 @@
             </button>
         </div>
         <div class="flex items-center justify-center mt-4">
-        <button type="button" class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
+        <button type="button" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline""
         onclick="window.location.reload();">
             Kembali ke Kelola Management Hotel
         </button>

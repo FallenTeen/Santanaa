@@ -24,6 +24,7 @@
     <hr class="my-6">
 
     <!-- Tabel untuk menampilkan daftar laporan -->
+    <h1 class="text-2xl font-bold mb-4">Laporan Pelanggan</h1>
     <div class="-mx-4 sm:-mx-8 px-4 sm:px-8 overflow-x-auto">
         <table class="min-w-full bg-white border-gray-200">
             <thead>
@@ -70,6 +71,7 @@
 
     <!-- Form untuk mengambil tindakan -->
     @if($selectedReport)
+
     <div class="mt-6">
         <h3 class="text-lg font-bold mb-2">Ambil Tindakan untuk Laporan ID {{ $selectedReport->id }}</h3>
         <form wire:submit.prevent="takeAction">
