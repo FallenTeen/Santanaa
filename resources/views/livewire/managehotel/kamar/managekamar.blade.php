@@ -74,6 +74,7 @@
         </thead>
         <tbody class="text-gray-700">
             @foreach($kamar as $kamar)
+            <h1 class="text-2xl font-bold mb-4">Data Kamar</h1>
             <tr>
                 <td class="py-3 px-4">{{ $kamar->tipeKamar->tipe }}</td>
                 <td class="py-3 px-4">{{ $kamar->statusKamar->status }}</td>
@@ -83,10 +84,10 @@
                 <td class="py-3 px-4">{{ $kamar->harga }}</td>
                 <td class="py-3 px-4">{{ $kamar->deskripsi_singkat }}</td>
                 <td class="py-3 px-4">
-                    <button wire:click="edit({{ $kamar->id }})" class="bg-[#B9A165] hover:bg-[#A08F4D] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                    <button wire:click="edit({{ $kamar->id }})" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                         Edit
                     </button>
-                    <button wire:click="destroy({{ $kamar->id }})" class="bg-[#B9A165] hover:bg-[#A08F4D] text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                    <button wire:click="destroy({{ $kamar->id }})" class="bg-red-500 hover:bg-red-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
                         Hapus
                     </button>
                 </td>
