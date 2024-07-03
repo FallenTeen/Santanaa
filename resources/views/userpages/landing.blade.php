@@ -153,11 +153,11 @@
           </li>
           <li>
             <span><i class="ri-headphone-line"></i></span>
-            Ruang Konferensi
+            Ruangan Tenang
           </li>
           <li>
             <span><i class="ri-map-2-line"></i></span>
-            Dukungan Pemandu Wisata
+            Wilayah Strategis
           </li>
         </ul>
       </div>
@@ -168,15 +168,15 @@
     <div class="banner__content">
       <div class="banner__card">
         <h4>25+</h4>
-        <p>Properti Tersedia</p>
+        <p>Kamar Tersedia</p>
       </div>
       <div class="banner__card">
         <h4>350+</h4>
-        <p>Pemesanan Selesai</p>
+        <p>Reservasi Selesai</p>
       </div>
       <div class="banner__card">
         <h4>600+</h4>
-        <p>Pelanggan Bahagia</p>
+        <p>Tamu Bahagia</p>
       </div>
     </div>
   </section>

@@ -12,6 +12,8 @@ class Booking extends Model
         'guest_id',
         'jumlah_tamu',
         'kamar_id',
+        'checkin',
+        'checkout',
         'dp_amount',
     ];
     public function guest()

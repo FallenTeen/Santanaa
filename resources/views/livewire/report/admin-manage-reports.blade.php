@@ -1,5 +1,5 @@
 <div class="p-6">
-    <h2 class="text-2xl font-bold mb-4">Admin: Manage Reports</h2>
+    <h2 class="text-2xl font-bold mb-4">Manajemen Laporan</h2>
 
     <!-- Form untuk menambah laporan -->
     <form wire:submit.prevent="create" class="mb-6">

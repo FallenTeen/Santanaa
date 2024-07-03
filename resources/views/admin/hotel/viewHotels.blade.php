@@ -10,7 +10,7 @@
 
     <div class="flex">
         <!-- Sidebar -->
-        <div class="full-height w-64 bg-gray-200 dark:bg-gray-900">
+        <div class="full-height w-64 bg-gray-200 dark:bg-gray-900" style="height: 100vh;">
             <nav class="p-4">
                 <ul>
                     <li class="mb-2">
