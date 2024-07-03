@@ -1,6 +1,6 @@
 <!-- resources/views/livewire/booking/create-booking.blade.php -->
 
-<div class="max-w-lg mx-auto">
+<div class="max-w-lg mx-auto px-12 py-16">
     @if($currentStep == 1)
         {{-- Step 1: Informasi Utama --}}
         <h3 class="text-xl font-bold mb-4">Step 1: Informasi Utama</h3>

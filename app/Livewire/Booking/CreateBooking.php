@@ -3,8 +3,8 @@
 namespace App\Livewire\Booking;
 
 use Livewire\Component;
-use livewireUI\Modal\ModalComponent;
 use App\Models\Booking;
+use LivewireUI\Modal\ModalComponent;
 use App\Models\User;
 use App\Models\Kamar;
 use App\Models\Guest;
