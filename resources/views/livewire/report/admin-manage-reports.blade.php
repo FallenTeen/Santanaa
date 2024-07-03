@@ -28,14 +28,14 @@
         <table class="min-w-full bg-white border-gray-200">
             <thead>
                 <tr>
-                    <th class="px-2 py-3 bg-gray-100 text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">ID Lap.</th>
-                    <th class="px-4 py-3 bg-gray-100 text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">Divisi</th>
-                    <th class="px- py-3 bg-gray-100 text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">Detail</th>
-                    <th class="px-6 py-3 bg-gray-100 text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">Aksi</th>
-                    <th class="px-6 py-3 bg-gray-100 text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">Ditindak Oleh</th>
-                    <th class="px-6 py-3 bg-gray-100 text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">Tindakan</th>
-                    <th class="px-6 py-3 bg-gray-100 text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">Dibuat Pada</th>
-                    <th class="px-6 py-3 bg-gray-100 text-xs leading-4 font-medium text-gray-600 uppercase tracking-wider">Ditindak Pada</th>
+                    <th class="px-4 py-3 bg-gray-800 text-xs leading-4 font-medium text-white uppercase tracking-wider">Divisi</th>
+                    <th class="px-2 py-3 bg-gray-800 text-xs leading-4 font-medium text-white uppercase tracking-wider">ID Lap.</th>
+                    <th class="px- py-3 bg-gray-800 text-xs leading-4 font-medium text-white uppercase tracking-wider">Detail</th>
+                    <th class="px-6 py-3 bg-gray-800 text-xs leading-4 font-medium text-white uppercase tracking-wider">Aksi</th>
+                    <th class="px-6 py-3 bg-gray-800 text-xs leading-4 font-medium text-white uppercase tracking-wider">Ditindak Oleh</th>
+                    <th class="px-6 py-3 bg-gray-800 text-xs leading-4 font-medium text-white uppercase tracking-wider">Tindakan</th>
+                    <th class="px-6 py-3 bg-gray-800 text-xs leading-4 font-medium text-white uppercase tracking-wider">Dibuat Pada</th>
+                    <th class="px-6 py-3 bg-gray-800 text-xs leading-4 font-medium text-white uppercase tracking-wider">Ditindak Pada</th>
                 </tr>
             </thead>
             <tbody>
