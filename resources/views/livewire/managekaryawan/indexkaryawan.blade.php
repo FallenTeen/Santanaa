@@ -1,5 +1,16 @@
 <div class="container mx-auto p-4">
-    <h1 class="text-2xl font-bold mb-4">Data Karyawan</h1>
+            <!-- pencararian -->
+            <div class="max-w-7xl mx-auto flex items-center justify-between py-6 px-4 sm:px-6 lg:px-8">
+            <h1 class="text-2xl font-bold">Data Karyawan</h1>
+            <div class="relative">
+                <input type="text" placeholder="Cari..." class="w-48 md:w-64 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 pr-10">
+                <span class="absolute right-2 top-1/2 transform -translate-y-1/2">
+                    <svg class="h-6 w-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.56-4.56M9 17a8 8 0 100-16 8 8 0 000 16z" />
+                    </svg>
+                </span>
+            </div>
+        </div>
     <div class="overflow-x-auto">
     <table class="min-w-full bg-white shadow-md rounded my-6">
     <thead class="bg-gray-800 text-white">

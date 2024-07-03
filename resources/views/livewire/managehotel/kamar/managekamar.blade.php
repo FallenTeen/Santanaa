@@ -8,7 +8,7 @@
                     <select wire:model="tipe_kamar_id" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                         <option value="">Pilih Tipe Kamar</option>
                         @foreach($tipeKamar as $tipeKamar)
-                            <option value="{{ $tipeKamar->id }}">{{ $tipeKamar->tipe }}</option>
+                        <option value="{{ $tipeKamar->id }}">{{ $tipeKamar->tipe }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -29,7 +29,7 @@
                     <select wire:model="status_kamar_id" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                         <option value="">Pilih Status Kamar</option>
                         @foreach($statusKamar as $statusKamar)
-                            <option value="{{ $statusKamar->id }}">{{ $statusKamar->status }}</option>
+                        <option value="{{ $statusKamar->id }}">{{ $statusKamar->status }}</option>
                         @endforeach
                     </select>
                 </div>
@@ -72,27 +72,38 @@
                 <th class="py-3 px-4 uppercase font-semibold text-sm">Aksi</th>
             </tr>
         </thead>
-        <tbody class="text-gray-700">
-            @foreach($kamar as $kamar)
-            <h1 class="text-2xl font-bold mb-4">Data Kamar</h1>
-            <tr>
-                <td class="py-3 px-4">{{ $kamar->tipeKamar->tipe }}</td>
-                <td class="py-3 px-4">{{ $kamar->statusKamar->status }}</td>
-                <td class="py-3 px-4">{{ $kamar->nomor }}</td>
-                <td class="py-3 px-4">{{ $kamar->lantai }}</td>
-                <td class="py-3 px-4">{{ $kamar->kapasitas }}</td>
-                <td class="py-3 px-4">{{ $kamar->harga }}</td>
-                <td class="py-3 px-4">{{ $kamar->deskripsi_singkat }}</td>
-                <td class="py-3 px-4">
-                    <button wire:click="edit({{ $kamar->id }})" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                        Edit
-                    </button>
-                    <button wire:click="destroy({{ $kamar->id }})" class="bg-red-500 hover:bg-red-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
-                        Hapus
-                    </button>
-                </td>
-            </tr>
-            @endforeach
+        <!-- pencararian -->
+        <div class="max-w-7xl mx-auto flex items-center justify-between py-6 px-4 sm:px-6 lg:px-8">
+            <h1 class="text-2xl font-bold">Data Kamar</h1>
+            <div class="relative">
+                <input type="text" placeholder="Cari..." class="w-48 md:w-64 bg-white focus:outline-none focus:shadow-outline border border-gray-300 rounded-lg py-2 px-4 pr-10">
+                <span class="absolute right-2 top-1/2 transform -translate-y-1/2">
+                    <svg class="h-6 w-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.56-4.56M9 17a8 8 0 100-16 8 8 0 000 16z" />
+                    </svg>
+                </span>
+            </div>
+        </div>
+
+        @foreach($kamar as $kamar)
+        <tr>
+            <td class="py-3 px-4">{{ $kamar->tipeKamar->tipe }}</td>
+            <td class="py-3 px-4">{{ $kamar->statusKamar->status }}</td>
+            <td class="py-3 px-4">{{ $kamar->nomor }}</td>
+            <td class="py-3 px-4">{{ $kamar->lantai }}</td>
+            <td class="py-3 px-4">{{ $kamar->kapasitas }}</td>
+            <td class="py-3 px-4">{{ $kamar->harga }}</td>
+            <td class="py-3 px-4">{{ $kamar->deskripsi_singkat }}</td>
+            <td class="py-3 px-4">
+                <button wire:click="edit({{ $kamar->id }})" class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                    Edit
+                </button>
+                <button wire:click="destroy({{ $kamar->id }})" class="bg-red-500 hover:bg-red-500 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">
+                    Hapus
+                </button>
+            </td>
+        </tr>
+        @endforeach
         </tbody>
     </table>
 </div>
