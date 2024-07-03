@@ -15,4 +15,7 @@ class Report extends Model
     {
         return $this->belongsTo(Karyawan::class, 'assigned_to', 'id');
     }
+    public function pelapor(){
+        return $this->belongsTo(Guest::class, 'pelapor', 'id');
+    }
 }

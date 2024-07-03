@@ -37,7 +37,7 @@ class CreateBooking extends ModalComponent
         return User::where('role', '3')->get();
     }
     public function kamarTersedia(){
-        return Kamar::where('status_kamar_id', '8')->get();
+        return Kamar::where('status_kamar_id', '1')->get();
     }
     public function selectKamar($kamarId){
         $this->selectedKamar = $kamarId;
