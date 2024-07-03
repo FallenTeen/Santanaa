@@ -3,12 +3,13 @@
 namespace App\Livewire\Booking;
 
 use Livewire\Component;
+use livewireUI\Modal\ModalComponent;
 use App\Models\Booking;
 use App\Models\User;
 use App\Models\Kamar;
 use App\Models\Guest;
 
-class CreateBooking extends Component
+class CreateBooking extends ModalComponent
 {
     public $currentStep = 1, $total_step = 4, $id;
     public $nama, $email, $role;
@@ -18,6 +19,7 @@ class CreateBooking extends Component
     public function mount(){
         $this->currentStep = 1;
     }
+    
     public function render()
     {
         return view('livewire.booking.create-booking',[

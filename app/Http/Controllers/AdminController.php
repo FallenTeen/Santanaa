@@ -9,16 +9,16 @@ class AdminController extends Controller
 {
    public $showModal = false;
 
-   public function openModal(){
+   public function showModal(){
       $this->showModal = true;
    }
-   public function closeModal(){
-      $this->showModal = false;
-   }
+   
    public function dashboard(){
+      $countVisitor = Booking::count();  //Menghitung jumlah pengunjung yang menunggu konfirmasi  //menggunakan Eloquent ORM Laravel  //Jika ingin menggunakan query builder Laravel, maka gunakan Booking::where('status', 'Menunggu Konfirmasi')->count();
       $countPendingReports = Report::where('aksi', 'Menunggu Tindakan')->count();
       return view('admin.dashboard', [
          'countPendingReports' => $countPendingReports,
+         'countVisitor'=>$countVisitor,
      ]);
    }
    public function viewHotels(){
