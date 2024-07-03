@@ -35,7 +35,7 @@ class CreateBooking extends Component
         return User::where('role', '3')->get();
     }
     public function kamarTersedia(){
-        return Kamar::where('id', '8')->get();
+        return Kamar::where('status_kamar_id', '8')->get();
     }
     public function validateData(){
         if($this->currentStep == 1){
@@ -54,25 +54,38 @@ class CreateBooking extends Component
         }
         elseif($this->currentStep == 3){
             $this->validate([
-                'datai'=>'required|array'
+                'kamar'=>'required',
             ]);
         }
     }
 
     public function reserve(){
         if($this->currentStep = 4){
+            $user = User::where('email', $this->email)->first();
+            if ($user){
             $guest = Guest::firstOrCreate([
                 'nama'=>$this->nama,
                 'email'=>$this->email,
                 'tanggal_lahir'=>$this->tanggal_lahir,
                 'nomor_ktp'=>$this->nomor_ktp,
+                'user_id' => $user->id,
             ]);
+        } else {
+            $guest = Guest::firstOrCreate([
+                'nama' => $this->nama,
+                'email' => $this->email,
+                'tanggal_lahir' => $this->tanggal_lahir,
+                'nomor_ktp' => $this->nomor_ktp,
+            ]);
+        }
             $booking = Booking::create([
                 'nama'=>$this->nama,
                 'email'=>$this->email,
                 'guest_id' => $guest->id,
                 'kamar_id' => $this->kamar,
             ]);
+            $this->reset();
         }
     }
+
 }

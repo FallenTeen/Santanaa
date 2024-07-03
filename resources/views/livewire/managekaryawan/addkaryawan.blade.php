@@ -1,5 +1,5 @@
 <div class="container mx-auto p-4">
-    <form wire:submit.prevent="store" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+    <form wire:submit.prevent="save" class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
             <!-- Bagian kiri -->
             <div>

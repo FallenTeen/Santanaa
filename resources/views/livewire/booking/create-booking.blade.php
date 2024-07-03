@@ -45,20 +45,34 @@
             <button wire:click="kembali">Back</button>
         </form>
     @elseif($currentStep == 3)
-        {{-- Step 3: Pilih Kamar --}}
-        <h3>Step 3: Pilih Kamar</h3>
-        <form wire:submit.prevent="validateData">
-            <div>
-                <label>Pilih Kamar:</label>
-                <select wire:model="kamar">
-                    @foreach($kamarTersedia as $kamar)
-                        <option value="{{ $kamar->id }}">{{ $kamar->nama_kamar }}</option>
-                    @endforeach
-                </select>
-            </div>
-            <button wire:click="nextStep">Next</button>
-            <button wire:click="kembali">Back</button>
-        </form>
+    {{-- Step 3: Pilih Kamar --}}
+    <h3>Step 3: Pilih Kamar</h3>
+    <form wire:submit.prevent="validateData">
+        <div>
+            @foreach($kamarTersedia as $kamar)
+                <div class="card mb-3">
+                    <div class="card-header">
+                        Kamar {{ $kamar->nomor }}
+                    </div>
+                    <div class="card-body">
+                        <ul>
+                            <li>Tipe Kamar: {{ $kamar->tipeKamar->nama }}</li>
+                            <li>Status Kamar: {{ $kamar->statusKamar->nama }}</li>
+                            <li>Lantai: {{ $kamar->lantai }}</li>
+                            <li>Kapasitas: {{ $kamar->kapasitas }}</li>
+                            <li>Harga: {{ $kamar->harga }}</li>
+                            <li>Deskripsi: {{ $kamar->deskripsi_singkat }}</li>
+                        </ul>
+                        <form wire:submit.prevent="reserve">
+                            <input type="hidden" name="kamar" value="{{ $kamar->id }}">
+                            <button type="submit" class="btn btn-primary">Pilih Kamar</button>
+                        </form>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+        <button wire:click="kembali">Back</button>
+    </form>
     @elseif($currentStep == 4)
         {{-- Step 4: Review & Submit --}}
         <h3>Step 4: Review & Submit</h3>
