@@ -13,7 +13,7 @@ class CreateBooking extends Component
     public $currentStep = 1, $total_step = 4, $id;
     public $nama, $email, $role;
     public $user_id, $tanggal_lahir, $nomor_ktp;
-    public $guest_id, $kamar, $jumlah_guest;
+    public $guest_id, $selectedKamar, $kamar, $jumlah_tamu, $dp;
     public $datai = [];
     public function mount(){
         $this->currentStep = 1;
@@ -37,6 +37,9 @@ class CreateBooking extends Component
     public function kamarTersedia(){
         return Kamar::where('status_kamar_id', '8')->get();
     }
+    public function selectKamar($kamarId){
+        $this->selectedKamar = $kamarId;
+    }
     public function validateData(){
         if($this->currentStep == 1){
             $this->validate([
@@ -55,6 +58,11 @@ class CreateBooking extends Component
         elseif($this->currentStep == 3){
             $this->validate([
                 'kamar'=>'required',
+            ]);
+        }
+        elseif($this->currentStep == 4){
+            $this->validate([
+                'dp'=>'required',
             ]);
         }
     }
@@ -82,9 +90,12 @@ class CreateBooking extends Component
                 'nama'=>$this->nama,
                 'email'=>$this->email,
                 'guest_id' => $guest->id,
-                'kamar_id' => $this->kamar,
+                'kamar_id' => $this->selectedKamar,
+                'dp_amount'=>$this->dp,
+                'jumlah_tamu'=>$this->jumlah_tamu,
             ]);
             $this->reset();
+            $this->currentStep=1;
         }
     }
 
