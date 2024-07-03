@@ -27,6 +27,8 @@
                 <td class="py-3 px-4">{{ $book->kamar->nomor }}</td>
                 <td class="py-3 px-4">{{ $book->dp_amount }}</td>
                 <td class="py-3 px-4">{{ $book->created_at->format('d-m-Y') }}</td>
+                <td class="py-3 px-4">{{ $book->checkin }}</td>
+                <td class="py-3 px-4">{{ $book->checkout }}</td>
             </tr>
             @endforeach
         </tbody>
