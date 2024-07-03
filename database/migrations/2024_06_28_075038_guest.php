@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('guests', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
-            $table->string('nama');
-            $table->string('email');
-            $table->date('tanggal_lahir');
-            $table->string('nomor_ktp');
+            $table->string('nama')->nullable();
+            $table->string('email')->nullable();
+            $table->date('tanggal_lahir')->nullable();
+            $table->string('nomor_ktp')->nullable();
 
             $table->timestamps();
         });

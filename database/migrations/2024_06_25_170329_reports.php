@@ -10,7 +10,7 @@ return new class extends Migration
     {
         Schema::create('reports', function (Blueprint $table) {
             $table->id();
-            $table->string('divisi'); 
+            $table->string('divisi')->nullable(); 
             $table->text('detail')->nullable();
             $table->string('aksi')->default('Menunggu Tindakan');
             $table->unsignedBigInteger('assigned_to')->nullable();

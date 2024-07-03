@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
             $table->foreignId('guest_id')->constrained()->onDelete('cascade');
-            $table->integer('jumlah_tamu');
+            $table->integer('jumlah_tamu')->nullable();
             $table->foreignId('kamar_id')->constrained()->onDelete('cascade');
             $table->decimal('dp_amount', 10, 2)->nullable();
             $table->timestamps();

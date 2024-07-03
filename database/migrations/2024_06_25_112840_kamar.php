@@ -15,11 +15,11 @@ return new class extends Migration
             $table->id();
             $table->foreignId('tipe_kamar_id')->constrained('tipe_kamars')->onDelete('cascade');
             $table->foreignId('status_kamar_id')->constrained('status_kamars')->onDelete('cascade');
-            $table->string('nomor');
-            $table->integer('lantai');
-            $table->integer('kapasitas');
-            $table->decimal('harga', 10, 2);
-            $table->text('deskripsi_singkat');
+            $table->string('nomor')->nullable();
+            $table->integer('lantai')->nullable();
+            $table->integer('kapasitas')->nullable();
+            $table->decimal('harga', 10, 2)->nullable();
+            $table->text('deskripsi_singkat')->nullable();
             $table->timestamps();
         });
     }
